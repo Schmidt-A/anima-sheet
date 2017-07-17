@@ -1,47 +1,94 @@
 <!-- dev stuff, remove once we have sub -->
 <head>
+	<link rel="stylesheet" href="test_css/base.css">
+	<!-- TODO: why does this one break the crap out of the sheet -->
+	<!--<link rel="stylesheet" href="test_css/editor.css">-->
 	<link rel="stylesheet" href="A-BF.css">
 </head>
 
+<body>
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" style="display: block; width: 868px; height: 100%; margin:0 auto; position: relative !important;">
+        <div class="dialog characterdialog ui-dialog-content ui-widget-content" style="display: block; width: 100%; height: 100%; overflow: auto;">
+            <div class="dialog largedialog characterviewer" style="display: block; width: 100%; height: 100%;">
+                <div class="charsheet" id="root" style="padding-top:0px;">
+<!--- BEGIN Character Sheet HTML --> 
+
 <div class="sheet-header"><!-- header -->
-  <div class="sheet-wrapper sheet-logo">
-    <img src="https://i.imgur.com/5vusbAR.png" alt="Anima Beyond Fantasy"/>
-  </div>
   <div class="sheet-wrapper sheet-char-info"><!-- short character information -->
     <div class="sheet-style_row">
-      <div class="sheet-cell" data-i18n="name">Name</div>
-      <input type="text" name="attr_character_name" style="width:200px;"disabled="true;"/>
-      <div class="sheet-cell" data-i18n="race">Race</div>
-      <input type="text" name="attr_character_race" style="width:140px;"/>
-      <div class="sheet-cell" data-i18n="class">Class</div>
-      <input type="text" name="attr_character_class" style="width:140px;"/>
-    </div>
-    <div class="sheet-style_row">
-      <div class="sheet-cell" data-i18n="char-gender">Gender</div>
-      <input type="text" name="attr_character_gender" style="width:80px;"/>
-      <div class="sheet-cell" data-i18n="char-height">Height</div>
-      <input type="text" name="attr_character_height" style="width:50px; "/>
-      <div class="sheet-cell" data-i18n="char-weight">Weight</div>
-      <input type="text" name="attr_character_weight" style="width:60px;"/>
-      <div class="sheet-cell" data-i18n="char-size">Size</div>
-      <input type="number" name="attr_character_size" value="10" min="0" style="width:40px;"/>
-      <div class="sheet-cell" data-i18n="char-appearance">Appear.</div>
-      <input type="number" name="attr_character_appearance" value="5" min="0" max="10" style="width:40px;"/>
-      <div class="sheet-cell" data-i18n="age">Age</div>
+      <div class="sheet-cell sheet-cell-header sheet-cell-header-leftmost" data-i18n="name">Name:</div>
+      <input type="text" name="attr_character_name" style="width:164px;"disabled="true;"/>
+      <div class="sheet-cell sheet-cell-header" data-i18n="race">Race:</div>
+      <input type="text" name="attr_character_race" style="width:100px;"/>
+      <div class="sheet-cell sheet-cell-header" data-i18n="char-gender">Gender:</div>
+      <input type="text" name="attr_character_gender" style="width:60px;"/>
+      <div class="sheet-cell sheet-cell-header" data-i18n="age">Age:</div>
       <input type="number" name="attr_character_age" value="18" min="0" style="width:50px;"/>
     </div>
+		<div class="sheet-style_row">
+      <div class="sheet-cell sheet-cell-header sheet-cell-header-leftmost" data-i18n="char-height">Height:</div>
+      <input type="text" name="attr_character_height" style="width:40px; "/>
+      <div class="sheet-cell sheet-cell-header" data-i18n="char-weight">Weight:</div>
+      <input type="text" name="attr_character_weight" style="width:60px;"/>
+      <div class="sheet-cell sheet-cell-header" data-i18n="char-size">Size:</div>
+      <input type="number" name="attr_character_size" value="10" min="0" style="width:40px;"/>
+      <div class="sheet-cell sheet-cell-header" data-i18n="char-appearance">Appearance:</div>
+      <input type="number" name="attr_character_appearance" value="5" min="0" max="10" style="width:40px;"/>
+    </div>
     <div class="sheet-style_row">
-      <div class="sheet-cell" data-i18n="level">Level</div>
+      <div class="sheet-cell sheet-cell-header sheet-cell-header-leftmost" data-i18n="class">Active Class:</div>
+			<select name="attr_character_class" style="width:136px;">
+				<option value="character_class_warrior">Warrior</option>
+				<option value="character_class_acrobaticwarrior">Acrobatic Warrior</option>
+				<option value="character_class_paladin">Paladin</option>
+				<option value="character_class_darkpaladin">Dark Paladin</option>
+				<option value="character_class_weaponsmaster">Weaponsmaster</option>
+				<option value="character_class_technician">Technician</option>
+				<option value="character_class_tao">Tao</option>
+				<option value="character_class_ranger">Ranger</option>
+				<option value="character_class_shadow">Shadow</option>
+				<option value="character_class_thief">Thief</option>
+				<option value="character_class_assassin">Assassin</option>
+				<option value="character_class_wizard">Wizard</option>
+				<option value="character_class_warlock">Warlock</option>
+				<option value="character_class_illusionist">Illusionist</option>
+				<option value="character_class_wizardmentalist">Wizard Mentalist</option>
+				<option value="character_class_summoner">Summoner</option>
+				<option value="character_class_warriorsummoner">Warrior Summoner</option>
+				<option value="character_class_mentalist">Mentalist</option>
+				<option value="character_class_warriormentalist">Warrior Mentalist</option>
+				<option value="character_class_freelancer">Freelancer</option>
+			</select>
+			<div class="sheet-cell sheet-cell-header">Levels:</div>
+			<input type="number" name="attr_curr_class_levels" style="width:50px;"/>
+      <div class="sheet-cell sheet-cell-header" data-i18n="class">Previous Classes/Levels:</div>
+      <input type="text" name="attr_prev_character_class" style="width:140px;"/>
+		</div>
+    <div class="sheet-style_row">
+      <div class="sheet-cell sheet-cell-header sheet-cell-header-leftmost" data-i18n="level">Level:</div>
       <input type="number" name="attr_character_level" value="1" min="0" style="width:50px;"/>
-      <div class="sheet-cell" data-i18n="xperience-points">XP</div>
-      <input type="number" name="attr_character_xp" value="0" min="0" style="width:70px;"/>
-      <div class="sheet-cell" data-i18n="level-next" style="width:80px;">Next Level</div>
+      <div class="sheet-cell sheet-cell-header" data-i18n="xperience-points">XP:</div>
+      <input type="number" name="attr_character_xp" value="0" min="0" style="width:50px;"/>
+			<!-- TODO: auto-calculate next XP -->
+      <div class="sheet-cell sheet-cell-header" data-i18n="level-next" style="width:80px;">Next Level:</div>
       <input type="number" name="attr_character_nextlvl" min="0" value="100" style="width:70px;"/>
-      <div class="sheet-cell" data-i18n="development-points">DP</div>
-      <input type="number" name="attr_DP" value="( @{character_level}*100 ) + 500" disabled="true" style="width:70px;"/>
-      <div class="sheet-cell" data-i18n="presence" style="width:70px;">Presence</div>
+      <div class="sheet-cell sheet-cell-header" data-i18n="presence" style="width:70px;">Presence:</div>
       <input type="number" name="attr_presence" value="(@{character_level}*100 +500)/20" disabled="true" style="width:50px;"/>
     </div>
+		<div class="sheet-style_row">
+      <div class="sheet-cell sheet-cell-header sheet-cell-header-leftmost" data-i18n="development-points">DP Total:</div>
+      <input type="number" name="attr_DP" value="( @{character_level}*100 ) + 500" disabled="true" style="width:50px;"/>
+			<div class="sheet-cell sheet-cell-header">DP Available:</div>
+			<input type="number" name="attr_DP_available" value="" disabled="true" style="width: 50px;"/>
+			<div class="sheet-cell sheet-cell-header">Combat Max:</div>
+			<input type="number" name="attr_DP_combat_max" value="" disabled="true" style="width: 50px;"/>
+			<div class="sheet-cell sheet-cell-header">Available:</div>
+			<input type="number" name="attr_DP_combat_available" value="" disabled="true" style="width: 50px;"/>
+			<div class="sheet-cell sheet-cell-header">Mystic Max:</div>
+			<input type="number" name="attr_DP_mystic_max" value="" disabled="true" style="width: 50px;"/>
+			<div class="sheet-cell sheet-cell-header">Available:</div>
+			<input type="number" name="attr_DP_mystic_available" value="" disabled="true" style="width: 50px;"/>
+		</div>
   </div><!-- end short character information -->
 </div><!-- end header -->
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked"/><span data-i18n-title="tab-general" title="General"></span>
@@ -4740,6 +4787,12 @@
 <!-- End of Weapon Template --> 
 <!-- End of Templates -->
 
+								<!-- END Character Sheet HTML --> 
+						</div>
+				</div>
+		</div>
+</div>
+
 <!-- Sheet Workers -->
 <script type="text/worker">
     var sheetName = 'Anima Beyond Fantasy';
@@ -4891,4 +4944,6 @@
         });
     }
 </script>
+</body>
+</html>
 <!-- End of Sheet Workers -->

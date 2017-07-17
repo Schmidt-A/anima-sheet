@@ -360,6 +360,16 @@ div.sheet-page_header{
     text-align: center;
     width:45px;
 }
+
+.sheet-cell-header{
+		text-align: right;
+		width: auto;
+}
+
+.sheet-cell-header-leftmost{
+		width: 76px;
+}
+
 .sheet-actual_cell{
     width:50px;
     font-size:9pt;
